@@ -5,10 +5,9 @@
 }
 .page-header h1 {
 	font-size: 36px;
-	color: #ffffff;
 }
-.page-header h1 a:visited, .page-header h1 a:active {
-	color: #fff;
+.page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+	color: #ffffff;
   text-decoration: none;
 }
 .page-header span {
@@ -71,4 +70,8 @@ h1, h2, h3, h4 {
 
 .btn {
 	margin-right: 0.5rem;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
 }
