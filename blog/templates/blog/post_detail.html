@@ -2,14 +2,20 @@
 
 {% block content %}
     <div class="post">
+        <div class="function-buttons">
         {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
+            <a class="btn btn-default" href="{% url 'post_hide' pk=post.pk %}">非公開にする</a>
+        {% else %}
+            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">公開する</a>
         {% endif %}
-				{% if user.is_authenticated %}
-    			 <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-				{% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}" title="記事を編集"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}" title="記事を削除"><span class="glyphicon glyphicon-remove"></span></a>
+        {% endif %}
+        </div>
+    {% if post.published_date %}
+        <div class="date">{{ post.published_date }}</div>       
+    {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
